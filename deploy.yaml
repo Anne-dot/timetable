@@ -22,7 +22,6 @@ tasks:
     - 'deploy:vendors'
     - 'artisan:storage:link'
     - 'artisan:optimize:clear'
-    - 'artisan:migrate'
     - 'artisan:optimize'
     - 'deploy:publish'
 

@@ -1,0 +1,33 @@
+import: 
+  - recipe/laravel.php
+
+config:
+  repository: 'git@github.com:Anne-dot/timetable.git'
+  keep_releases: 2
+
+hosts:
+  stage:
+    hostname: 'ta23ruusmann.itmajakas.ee'
+    http_user: 	virt123071    
+    remote_user: virt123071
+    deploy_path: '~/domeenid/www.ta23ruusmann.itmajakas.ee/timetable'
+
+tasks:
+
+  opcache:clear:
+    - run: killall php83-cgi || true
+
+  deploy:
+    - 'deploy:prepare'
+    - 'deploy:vendors'
+    - 'artisan:storage:link'
+    - 'artisan:optimize:clear'
+    - 'artisan:migrate'
+    - 'artisan:optimize'
+    - 'deploy:publish'
+
+after:
+  deploy:failed: deploy:unlock
+
+before:
+  deploy:success: opcache:clear

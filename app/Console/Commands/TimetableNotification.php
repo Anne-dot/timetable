@@ -52,6 +52,6 @@ class TimetableNotification extends Command
                 return $event['date']->format('m-d');
             });
 
-        Mail::to('ralf.heinsoo@gmail.com')->send(new Timetable($data));
+        Mail::to('ruusmann@gmail.com')->send(new Timetable($data));
     }
 }

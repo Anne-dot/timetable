@@ -49,7 +49,7 @@ return [
             'auth_mode' => null,
             'stream' => [
                 'ssl' => [
-                    'allow_self_signed' => false,
+                    'allow_self_signed' => true,
                     'verify_peer' => true,
                     'verify_peer_name' => true,
                 ],

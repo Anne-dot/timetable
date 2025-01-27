@@ -5,6 +5,6 @@ use App\Mail\Timetable;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    abort(40);
+    abort(404);
 });
 
